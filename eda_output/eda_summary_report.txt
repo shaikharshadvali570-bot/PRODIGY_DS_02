@@ -1,0 +1,62 @@
+TITANIC DATASET - EDA SUMMARY REPORT
+Generated: 2026-10-28 16:08:36
+================================================================================
+
+[Univariate - Survival] Total passengers: 891 | Survived: 342 (38.4%) | Did not survive: 549 (61.6%)
+
+[Univariate - Pclass] Class distribution (%): {3: 55.1, 1: 24.2, 2: 20.7}
+
+[Univariate - Sex] Sex distribution (%): {'male': 64.8, 'female': 35.199999999999996}
+
+[Univariate - Embarked] Embarked distribution (%): {'S': 72.5, 'C': 18.9, 'Q': 8.6}
+
+[Bivariate - Pclass] Survival rate by class: {1: 0.63, 2: 0.473, 3: 0.242}
+
+[Bivariate - Sex] Survival rate by sex: {'female': 0.742, 'male': 0.189}
+
+[Bivariate - AgeBin] Survival rate by age group: {'Child': 0.58, 'Teen': 0.429, 'YoungAdult': 0.347, 'Adult': 0.409, 'Senior': 0.227}
+
+[Bivariate - Embarked] Survival rate by embarked: {'C': 0.554, 'Q': 0.39, 'S': 0.339}
+
+[Bivariate - FamilySize] Survival rate by family size: {1: 0.304, 2: 0.553, 3: 0.578, 4: 0.724, 5: 0.2, 6: 0.136, 7: 0.333, 8: 0.0, 11: 0.0}
+
+[Bivariate - IsAlone] Survival rate by IsAlone: {0: 0.506, 1: 0.304}
+
+[Bivariate - Title] Survival rate by title: {'Mrs': 0.792, 'Miss': 0.698, 'Master': 0.575, 'Rare': 0.444, 'Mr': 0.157}
+
+[Multivariate - Correlation] Top correlations with Survived:
+Survived      1.000000
+Fare          0.257307
+Parch         0.081629
+FamilySize    0.016639
+SibSp        -0.035322
+Age          -0.058635
+IsAlone      -0.203367
+Pclass       -0.338481
+
+[Multivariate - Crosstab] Crosstab (Pclass, Sex) x Survived:
+Survived         0   1
+Pclass Sex            
+1      female    3  91
+       male     77  45
+2      female    6  70
+       male     91  17
+3      female   72  72
+       male    300  47
+
+[Multivariate - Pivot] Survival rate pivot (Pclass x Embarked):
+Embarked      C      Q      S
+Pclass                       
+1         0.694    0.5  0.589
+2         0.529  0.667  0.463
+3         0.379  0.375   0.19
+1. Gender is the strongest predictor: females had a much higher survival rate than males.
+2. Passenger class matters: 1st class passengers had the highest survival rate, 3rd class the lowest.
+3. Age matters: children had a higher survival rate than adults/seniors.
+4. Embarkation port: passengers from Cherbourg (C) had higher survival than Queenstown (Q) or Southampton (S).
+5. Family size: passengers with small families (2-4) tended to survive more than those alone or in very large groups.
+6. Fare: higher fare (proxy for class/wealth) correlates with higher survival.
+7. Title: titles like 'Mrs', 'Miss', and rare/noble titles show higher survival; 'Mr' shows lower survival.
+8. Missing data handled: Age (median by Sex+Pclass), Embarked (mode), Fare (median by Pclass), Cabin (deck extracted).
+9. Fare is right-skewed; log transformation recommended for modeling.
+10. No duplicate rows were found; outliers in Fare retained as they may reflect genuine high fares.
